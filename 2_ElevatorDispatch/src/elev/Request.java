@@ -11,6 +11,7 @@ public class Request {
 	// 构造函数
 	Request(String str){
 		this.str = str;
+		//Parse();
 	}
 	// 解析输入的请求，合法则设置isValid为true，并初始化各成员变量
 	public void Parse()
@@ -45,6 +46,7 @@ public class Request {
 				if(splited.length != 3) return;
 				floor = Integer.parseInt(splited[1]);
 				T = Long.parseLong(splited[2]);
+				//System.out.println(T+"]");
 			}
 			else return;
 			// T不能超过32位无符号整数最大值2^32-1
@@ -89,7 +91,13 @@ public class Request {
 	}
 	public String toString()
 	{
-		return "["+str.substring(1, str.length() - 1)+"]";
+		//return "["+str.substring(1, str.length() - 1)+"]";
+		//System.out.println(T);
+		String s1, s2;
+		if(isFR) s1 = "FR"; else s1 = "ER";
+		if(isUP) s2 = "UP"; else s2 = "DOWN";
+		if(isFR) return "["+s1+","+floor+","+s2+","+T+"]";
+		else return "["+s1+","+floor+","+T+"]";
 	}
 	public boolean equals(Request rc)
 	{

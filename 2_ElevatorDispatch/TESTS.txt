@@ -10,6 +10,7 @@
 RUN
 
 输出：
+
 [FR,1,UP,0]/(1,STILL,1.0)
 #SAME [(ER,4,1)]
 #SAME [(FR,2,UP,2)]

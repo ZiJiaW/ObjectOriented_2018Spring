@@ -147,8 +147,40 @@ public class ALS_Scheduler extends Scheduler{
 				// 如果与主请求楼层一致，则按照出现顺序输出
 				if(rqs[k].floor() == rqs[mainRequest].floor() && rqs[k].time() >= rqs[mainRequest].time())
 				{
-					executeMainrq(mainRequest, state);
-					finished[mainRequest] = 1;
+					if(k > mainRequest)
+					{
+						executeMainrq(mainRequest, state);
+						finished[mainRequest] = 1;
+					}
+					else
+					{
+						if(rqs[k].floor() == elv.floor())// 同层请求
+						{
+							elv.timeFly(-1.0);// 回到开关门之前
+							elv.SetState(state);
+							System.out.println(rqs[k]+"/"+elv);
+							elv.open();
+						}
+						else if(state == 1)// UP
+						{
+							elv.up(rqs[k].floor() - elv.floor());
+							System.out.println(rqs[k]+"/"+elv);
+							elv.open();
+						}
+						else// DOWN  注：STILL无捎带
+						{
+							elv.down(elv.floor() - rqs[k].floor());
+							System.out.println(rqs[k]+"/"+elv);
+							elv.open();
+						}
+						finished[k] = 1;
+						elv.timeFly(-1.0);// 回到开关门之前
+						elv.SetState(state);
+						System.out.println(rqs[mainRequest]+"/"+elv);
+						elv.open();
+						finished[mainRequest] = 1;
+						continue;
+					}
 				}
 				// 捎带中电梯一直在运动，如果同层，必然在一次开关门中完成
 				if(rqs[k].floor() == elv.floor())// 同层请求
