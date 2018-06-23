@@ -32,6 +32,14 @@ public class ALS_SchedulerTest {
     }
 
     @Test
+    public void testALS_Scheduler() {
+        Request[] rqs = new Request[8];
+        Elevator e = new Elevator();
+        ALS_Scheduler as = new ALS_Scheduler(rqs, e);
+        assertTrue(as.repOk());
+    }
+    
+    @Test
     public void testSchedule() {
         Request[] rqs = new Request[8];
         Elevator e = new Elevator();

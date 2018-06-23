@@ -4,6 +4,8 @@ import java.lang.Integer;
 /**
  * @OVERVIEW: record all info of a request;
  * @INHERIT: None;
+ * @INVARIANT: None;
+ * @repOk: this.str!= null;
 */
 public class Request {
 	private boolean isFR;// (FR: TRUE, ER: FALSE)
@@ -173,10 +175,10 @@ public class Request {
     /**
     * @REQUIRES: None;
     * @MODIFIES: None;
-    * @EFFECTS: \result == true;
+    * @EFFECTS: \result == this.str!= null;
     */
 	public boolean repOk()
 	{
-	    return true;
+	    return str != null;
 	}
 }

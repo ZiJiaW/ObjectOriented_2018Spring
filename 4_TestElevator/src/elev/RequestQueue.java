@@ -3,6 +3,8 @@ import java.util.*;
 /**
  * @OVERVIEW: parse input line by line and form vector of request;
  * @INHERIT: None; 
+ * @INVARIANT: None;
+ * @repOk: this.rq.size() >= 0;
 */
 public class RequestQueue {
 	public Vector<Request> rq;
@@ -63,7 +65,7 @@ public class RequestQueue {
     * @MODIFIES: None;
     * @EFFECTS: \result == this.rq.size() >= 0;
     */
-	public boolean repOk()
+	public boolean repOk() 
 	{
 	    return rq.size() >= 0;
 	}

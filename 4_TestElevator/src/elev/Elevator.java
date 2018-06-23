@@ -3,6 +3,8 @@ import java.text.DecimalFormat;
 /**
  * @OVERVIEW: simulate elevator's movement;
  * @INHERIT: None; 
+ * @INVARIANT: None;
+ * @repOK:this.floor>=1&&this.floor<=10 && (this.state==1||this.state==2||this.state==0) && this.time >= 0;
 */
 public class Elevator implements ElevAction{
 	private int floor;

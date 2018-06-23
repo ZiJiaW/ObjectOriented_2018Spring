@@ -2,6 +2,8 @@ package elev;
 /**
  * @OVERVIEW: fool schedule requests to manage the elevator system;
  * @INHERIT: None; 
+ * @INVARIANT: None;
+ * @repOk: this.elv.repOk();
 */
 public class Scheduler {
 	Request[] rqs;
@@ -59,7 +61,7 @@ public class Scheduler {
 			int dist = Math.abs(elv.floor() - rqs[i].floor());
 
 			if(rqs[i].time() > elv.time())
-				elv.timeFly(rqs[i].time() - elv.time());
+				elv.timeFly(rqs[i].time() - elv.time()); 
 			if(elv.floor() > rqs[i].floor())
 				elv.down(dist);
 			else

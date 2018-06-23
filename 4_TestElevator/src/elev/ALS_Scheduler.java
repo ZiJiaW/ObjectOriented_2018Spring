@@ -3,6 +3,8 @@ import java.util.*;
 /**
  * @OVERVIEW: ALS schedule requests to manage the elevator system;
  * @INHERIT: Scheduler;
+ * @INVARIANT: None;
+ * @repOK: this.super.repOk();
 */
 public class ALS_Scheduler extends Scheduler{
 	

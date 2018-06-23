@@ -26,6 +26,10 @@ public class ElevatorTest {
         System.out.println("test "+testCount+" ends!");
     }
     @Test
+    public void testElevator() {
+        assertTrue(elv.floor()==1&&elv.time()==0&&elv.state()==0);
+    }
+    @Test
     public void testUp() {
         int floor = elv.floor();
         double time = elv.time();
@@ -93,13 +97,13 @@ public class ElevatorTest {
 
     @Test
     public void testToString() {
-        assertTrue(elv.toString().equals("(1,STILL,0.0)"));
+        assertTrue(elv.toString().equals("(1,STILL,0.0)")&&elv.repOk());
         elv.up(3);
-        assertTrue(elv.toString().equals("(4,UP,1.5)"));
+        assertTrue(elv.toString().equals("(4,UP,1.5)")&&elv.repOk());
         elv.open();
-        assertTrue(elv.toString().equals("(4,STILL,2.5)"));
+        assertTrue(elv.toString().equals("(4,STILL,2.5)")&&elv.repOk());
         elv.down(1);
-        assertTrue(elv.toString().equals("(3,DOWN,3.0)"));
+        assertTrue(elv.toString().equals("(3,DOWN,3.0)")&&elv.repOk());
     }
 
     @Test

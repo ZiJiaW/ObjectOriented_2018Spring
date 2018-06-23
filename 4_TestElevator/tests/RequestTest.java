@@ -32,6 +32,11 @@ public class RequestTest {
     }
 
     @Test
+    public void testRequest() {
+        Request r = new Request("1122");
+        assertTrue(r.repOk());
+    }
+    @Test
     public void testParse() {
         Request r = new Request("END==-");r.Parse();
         assertTrue(!r.IsValid()&&r.repOk());
